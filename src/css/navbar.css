@@ -1,0 +1,45 @@
+@media only screen and (max-width: 767px) {
+  .navbar .navbar-container nav .bg-dim {
+    width: 100%;
+    height: 125%;
+    transition: all 0.3s ease;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar .navbar-container nav .navbar-links {
+    width: 70%;
+    height: 125%;
+    right: -50%;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+  .navbar .navbar-container nav .navbar-links.active {
+    right: 0%;
+    opacity: 1;
+  }
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link {
+  @apply mb-5 md:mb-0 md:ml-3 lg:ml-10 text-xl lg:text-2xl;
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link .list-chevron {
+  @apply w-4 ml-3 inline-block transition ease-linear duration-100;
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link ul {
+  @apply transition-all ease-linear duration-100;
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link ul.features-content .features-item {
+  @apply flex items-center mb-4 md:m-5;
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link ul.features-content .features-item span .features-icon {
+  @apply w-7 mr-3;
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link ul.company-content .company-item {
+  @apply mb-4;
+}
