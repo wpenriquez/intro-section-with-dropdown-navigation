@@ -158,7 +158,7 @@ const Navbar = () => {
                   </div>
                   <ul
                     className={
-                      `ml-5 md:ml-0 md:border border-gray-300 md:h-auto features-content relative md:absolute md:top-5 md:rounded ` +
+                      `features-content ml-5 md:ml-0 md:border border-gray-300 md:h-auto  relative md:absolute md:top-5 lg:top-10 md:rounded ` +
                       featuresContentDisplay
                     }
                   >

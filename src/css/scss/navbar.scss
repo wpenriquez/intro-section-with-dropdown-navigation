@@ -32,11 +32,11 @@
             @apply transition-all ease-linear duration-100;
             &.features-content {
               .features-item {
-                @apply flex items-center mb-4 md:m-5;
+                @apply flex items-center mb-4 md:m-0 md:p-3 md:text-lg md:hover:bg-gray-200 md:h-10;
 
                 span {
                   .features-icon {
-                    @apply w-7 mr-3;
+                    @apply w-7 mr-3 md:mr-2;
                   }
                 }
               }

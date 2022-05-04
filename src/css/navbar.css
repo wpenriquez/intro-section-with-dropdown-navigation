@@ -33,11 +33,11 @@
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link ul.features-content .features-item {
-  @apply flex items-center mb-4 md:m-5;
+  @apply flex items-center mb-4 md:m-0 md:p-3 md:text-lg md:hover:bg-gray-200 md:h-10;
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link ul.features-content .features-item span .features-icon {
-  @apply w-7 mr-3;
+  @apply w-7 mr-3 md:mr-2;
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link ul.company-content .company-item {
