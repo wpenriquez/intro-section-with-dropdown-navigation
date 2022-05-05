@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/navbar.css";
 
 const Navbar = () => {
@@ -34,6 +34,13 @@ const Navbar = () => {
 
   //   FUNCTION TO ANIMATE DROPDOWN OF FEATURES CONTENT
   const collapseFeaturesDropDown = (): void => {
+    if (window.innerWidth > 767) {
+      setCompanyRotate("rotate-0");
+      setCompanyDisplay("h-0 mt-0 opacity-0");
+      setTimeout(() => {
+        setCompanyDisplay("h-0 mt-0 opacity-0 hidden");
+      }, 200);
+    }
     if (rotateFeaturesChevron === "rotate-0") {
       setFeaturesRotate("-rotate-180");
       setFeaturesDisplay("h-0 mt-0 opacity-0 block");
@@ -51,6 +58,13 @@ const Navbar = () => {
 
   //   FUNCTION TO ANIMATE DROPDOWN OF COMPANY CONTENT
   const collapseCompanyDropdown = (): void => {
+    if (window.innerWidth > 767) {
+      setFeaturesRotate("rotate-0");
+      setFeaturesDisplay("h-0 mt-0 opacity-0");
+      setTimeout(() => {
+        setFeaturesDisplay("h-0 mt-0 opacity-0 hidden");
+      }, 200);
+    }
     if (rotateCompanyChevron === "rotate-0") {
       setCompanyRotate("-rotate-180");
       setCompanyDisplay("h-0 mt-0 opacity-0 block");
@@ -66,16 +80,59 @@ const Navbar = () => {
     }
   };
 
+  // USE EFFECT TO CLOSE OPENED MENU ON CHANGE ORIENTATION OR CLICKING OUTSIDE OF THE DROPDOWN ELEMENTS
+  useEffect(() => {
+    const closeAllMenu = () => {
+      setFeaturesRotate("rotate-0");
+      setFeaturesDisplay("h-0 mt-0 opacity-0");
+      setCompanyRotate("rotate-0");
+      setCompanyDisplay("h-0 mt-0 opacity-0");
+      setTimeout(() => {
+        setFeaturesDisplay("h-0 mt-0 opacity-0 hidden");
+        setCompanyDisplay("h-0 mt-0 opacity-0 hidden");
+      }, 200);
+    };
+
+    const closeAllMenuClick = (evt: any) => {
+      console.log(evt.target.classList);
+      if (window.innerWidth > 767) {
+        if (!evt.target.classList.contains("features-dropdwn")) {
+          setFeaturesRotate("rotate-0");
+          setFeaturesDisplay("h-0 mt-0 opacity-0");
+          setTimeout(() => {
+            setFeaturesDisplay("h-0 mt-0 opacity-0 hidden");
+          }, 200);
+        }
+
+        if (!evt.target.classList.contains("company-dropdwn")) {
+          setCompanyRotate("rotate-0");
+          setCompanyDisplay("h-0 mt-0 opacity-0");
+          setTimeout(() => {
+            setCompanyDisplay("h-0 mt-0 opacity-0 hidden");
+          }, 200);
+        }
+      }
+    };
+
+    window.addEventListener("resize", closeAllMenu);
+    window.addEventListener("click", closeAllMenuClick);
+  }, [
+    rotateFeaturesChevron,
+    rotateCompanyChevron,
+    featuresContentDisplay,
+    companyContentDisplay,
+  ]);
+
   return (
     <div>
       {/* MAIN NAVBAR DIV */}
-      <div className="navbar">
+      <div className="navbar border-b border-gray-300">
         {/* INNER NAVBAR CONTAINER */}
         <div className="navbar-container">
           {/* NAV TAG */}
           <nav className="md:flex items-center p-5 md:py-4  lg:p-5">
             {/* LOGO AND HAMBURGER */}
-            <div className="logo flex justify-between items-center">
+            <div className="logo-hamburger flex justify-between items-center">
               <h1 className="font-bold text-4xl lg:text-5xl text-black">
                 <a href="/" className="">
                   snap
@@ -105,14 +162,15 @@ const Navbar = () => {
                 dimBackground
               }
             ></div>
-            {/* LIST OF LINKS */}
+            {/* CONTAINER FOR LIST */}
             <div
               className={
                 `navbar-links border-l md:border-0  md:flex absolute md:relative top-0 border-black bg-white p-5 transition-all ease-linear duration-100 z-20 w-full ` +
                 menuCollapse
               }
             >
-              <ul className=" md:flex md:items-center relative w-full">
+              {/* LIST OF LINKS */}
+              <ul className=" md:flex md:items-center relative w-full h-auto">
                 <li
                   className="close-btn flex justify-end mb-5 md:hidden"
                   onClick={collapseMenu}
@@ -139,16 +197,20 @@ const Navbar = () => {
                     onClick={collapseFeaturesDropDown}
                   >
                     Features
-                    <span>
+                    <span className="features-dropdwn">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className={`list-chevron ` + rotateFeaturesChevron}
+                        className={
+                          `list-chevron features-dropdwn ` +
+                          rotateFeaturesChevron
+                        }
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                         strokeWidth={2}
                       >
                         <path
+                          className="features-dropdwn"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           d="M19 9l-7 7-7-7"
@@ -156,12 +218,8 @@ const Navbar = () => {
                       </svg>
                     </span>
                   </div>
-                  <ul
-                    className={
-                      `features-content ml-5 md:ml-0 md:border border-gray-300 md:h-auto  relative md:absolute md:top-5 lg:top-10 md:rounded ` +
-                      featuresContentDisplay
-                    }
-                  >
+                  {/* FEATURES ITEM */}
+                  <ul className={`features-content ` + featuresContentDisplay}>
                     <li className="features-item">
                       <span>
                         <svg
@@ -238,7 +296,7 @@ const Navbar = () => {
                     onClick={collapseCompanyDropdown}
                   >
                     Company
-                    <span>
+                    <span className="company-dropdwn">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className={`list-chevron ` + rotateCompanyChevron}
@@ -248,6 +306,7 @@ const Navbar = () => {
                         strokeWidth={2}
                       >
                         <path
+                          className="company-dropdwn"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           d="M19 9l-7 7-7-7"
@@ -255,9 +314,7 @@ const Navbar = () => {
                       </svg>
                     </span>
                   </div>
-                  <ul
-                    className={`ml-5 company-content ` + companyContentDisplay}
-                  >
+                  <ul className={`company-content ` + companyContentDisplay}>
                     <li className="company-item">
                       <a href="#">History</a>
                     </li>
@@ -280,10 +337,17 @@ const Navbar = () => {
               <div className="login-register mt-6 md:mt-0 md:flex text-center">
                 <ul className="md:flex items-center">
                   <li className="nav-link">
-                    <a href="#">Login</a>
+                    <a href="#" className="hover:underline">
+                      Login
+                    </a>
                   </li>
-                  <li className="border-2 border-gray-400 rounded-2xl p-2 md:px-3 lg:py-2 lg:px-6 nav-link">
-                    <a href="#">Register</a>
+                  <li className="nav-link">
+                    <a
+                      href="#"
+                      className="border-2 border-gray-400 rounded-2xl p-2 md:px-3 lg:py-2 lg:px-6 hover:bg-gray-400 hover:text-white transition ease-linear duration-100"
+                    >
+                      Register
+                    </a>
                   </li>
                 </ul>
               </div>
