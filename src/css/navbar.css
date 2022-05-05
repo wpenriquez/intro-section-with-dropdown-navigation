@@ -6,6 +6,12 @@
   }
 }
 
+@media only screen and (max-width: 767px) and (max-height: 375px) {
+  .navbar .navbar-container nav .bg-dim {
+    height: 190%;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .navbar .navbar-container nav .navbar-links {
     width: 70%;
@@ -14,6 +20,15 @@
     opacity: 0;
     transition: all 0.2s ease;
   }
+}
+
+@media only screen and (max-width: 767px) and (max-height: 375px) {
+  .navbar .navbar-container nav .navbar-links {
+    height: 190%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
   .navbar .navbar-container nav .navbar-links.active {
     right: 0%;
     opacity: 1;

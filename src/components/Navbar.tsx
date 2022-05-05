@@ -171,11 +171,9 @@ const Navbar = () => {
             >
               {/* LIST OF LINKS */}
               <ul className=" md:flex md:items-center relative w-full h-auto">
-                <li
-                  className="close-btn flex justify-end mb-5 md:hidden"
-                  onClick={collapseMenu}
-                >
+                <li className="close-btn flex justify-end mb-5 md:hidden">
                   <svg
+                    onClick={collapseMenu}
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-10"
                     fill="none"
