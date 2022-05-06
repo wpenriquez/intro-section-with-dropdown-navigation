@@ -12,6 +12,10 @@
   }
 }
 
+.navbar .navbar-container nav .navbar-links {
+  @apply md:p-0;
+}
+
 @media only screen and (max-width: 767px) {
   .navbar .navbar-container nav .navbar-links {
     width: 70%;
@@ -36,7 +40,11 @@
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link {
-  @apply mb-5 md:mb-0 md:ml-3 lg:ml-10 text-xl lg:text-2xl hover:text-black transition-all ease-linear duration-100;
+  @apply mb-5 md:mb-0 md:ml-3 lg:ml-10 text-xl lg:text-2xl md:hover:text-black md:border-b-2 border-transparent md:hover:border-black transition-all ease-linear duration-100 md:w-auto md:h-full md:flex items-center;
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link.register {
+  @apply md:border-transparent;
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link .list-chevron {
@@ -48,7 +56,7 @@
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link ul.features-content {
-  @apply ml-5 md:-ml-5 lg:ml-0 md:h-auto md:border-x md:border-b md:bg-white border-gray-300 relative md:absolute md:top-10 lg:top-12 md:rounded-b;
+  @apply ml-5 md:ml-0 lg:-ml-1 md:h-auto md:border-x md:border-b md:bg-white border-gray-300 relative md:absolute md:top-[5.5rem] md:rounded-b;
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link ul.features-content .features-item {
@@ -60,9 +68,13 @@
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link ul.company-content {
-  @apply ml-5 md:ml-0 md:h-auto relative md:absolute  md:border-x md:border-b border-gray-300 md:bg-white md:top-10 lg:top-12 md:rounded-b;
+  @apply ml-5 md:-ml-1 md:h-auto relative md:absolute  md:border-x md:border-b border-gray-300 md:bg-white md:top-[5.5rem] md:w-36 lg:w-40 md:rounded-b;
 }
 
 .navbar .navbar-container nav .navbar-links .nav-link ul.company-content .company-item {
-  @apply md:px-5 mb-4 md:py-3 md:m-0 md:text-sm lg:text-lg md:hover:bg-gray-200 md:h-11 transition-all ease-linear duration-100;
+  @apply mb-4 md:py-3 md:m-0 md:text-sm lg:text-lg md:hover:bg-gray-200 md:h-11 transition-all ease-linear duration-100;
+}
+
+.navbar .navbar-container nav .navbar-links .nav-link ul.company-content .company-item a {
+  @apply md:w-full md:flex justify-center;
 }

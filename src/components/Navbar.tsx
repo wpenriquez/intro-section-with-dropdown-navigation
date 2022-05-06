@@ -126,15 +126,15 @@ const Navbar = () => {
   return (
     <div>
       {/* MAIN NAVBAR DIV */}
-      <div className="navbar border-b border-gray-300">
+      <div className="navbar border-b border-gray-300 md:h-28">
         {/* INNER NAVBAR CONTAINER */}
-        <div className="navbar-container">
+        <div className="navbar-container md:h-full">
           {/* NAV TAG */}
-          <nav className="md:flex items-center p-5 md:py-4  lg:p-5">
+          <nav className="md:flex items-center p-5 md:px-5 md:py-0 md:h-full">
             {/* LOGO AND HAMBURGER */}
             <div className="logo-hamburger flex justify-between items-center">
               <h1 className="font-bold text-4xl lg:text-5xl text-black">
-                <a href="/" className="">
+                <a href="/" className="" tabIndex={1}>
                   snap
                 </a>
               </h1>
@@ -165,7 +165,7 @@ const Navbar = () => {
             {/* CONTAINER FOR LIST */}
             <div
               className={
-                `navbar-links border-l md:border-0  md:flex absolute md:relative top-0 border-black bg-white p-5 transition-all ease-linear duration-100 z-20 w-full ` +
+                `navbar-links border-l md:border-0 md:flex  absolute md:relative top-0 border-black bg-white p-5 transition-all ease-linear duration-100 z-20 w-full md:h-full ` +
                 menuCollapse
               }
             >
@@ -191,8 +191,14 @@ const Navbar = () => {
                 {/* FEATURES DROPDOWN */}
                 <li className="nav-link">
                   <div
-                    className="features-dropdwn cursor-pointer"
+                    className="features-dropdwn cursor-pointer md:h-full md:flex md:items-center md:px-2"
                     onClick={collapseFeaturesDropDown}
+                    tabIndex={2}
+                    onKeyDown={(e) => {
+                      if (e.keyCode === 13) {
+                        collapseFeaturesDropDown();
+                      } 
+                    }}
                   >
                     Features
                     <span className="features-dropdwn">
@@ -234,7 +240,7 @@ const Navbar = () => {
                           />
                         </svg>
                       </span>
-                      <a href="#">Todo List</a>
+                      <a href="#" tabIndex={3}>Todo List</a>
                     </li>
                     <li className="features-item">
                       <span>
@@ -253,7 +259,7 @@ const Navbar = () => {
                           />
                         </svg>
                       </span>
-                      <a href="#">Calendar</a>
+                      <a href="#" tabIndex={4}>Calendar</a>
                     </li>
                     <li className="features-item">
                       <span>
@@ -266,7 +272,7 @@ const Navbar = () => {
                           <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
                         </svg>
                       </span>
-                      <a href="#">Reminders</a>
+                      <a href="#" tabIndex={5}>Reminders</a>
                     </li>
                     <li className="features-item">
                       <span>
@@ -283,15 +289,21 @@ const Navbar = () => {
                           />
                         </svg>
                       </span>
-                      <a href="#">Planning</a>
+                      <a href="#" tabIndex={6}>Planning</a>
                     </li>
                   </ul>
                 </li>
                 {/* COMPANY DROPDOWN */}
                 <li className="nav-link">
                   <div
-                    className="company-dropdwn cursor-pointer"
+                    className="company-dropdwn cursor-pointer md:h-full md:flex md:items-center md:px-2"
                     onClick={collapseCompanyDropdown}
+                    onKeyDown={(e) => {
+                      if (e.keyCode === 13) {
+                        collapseCompanyDropdown();
+                      }
+                    }}
+                    tabIndex={7}
                   >
                     Company
                     <span className="company-dropdwn">
@@ -314,32 +326,47 @@ const Navbar = () => {
                   </div>
                   <ul className={`company-content ` + companyContentDisplay}>
                     <li className="company-item">
-                      <a href="#">History</a>
+                      <a href="#" tabIndex={8}>History</a>
                     </li>
                     <li className="company-item">
-                      <a href="#">Our Team</a>
+                      <a href="#" tabIndex={9}>Our Team</a>
                     </li>
                     <li className="company-item">
-                      <a href="#">Blog</a>
+                      <a href="#" tabIndex={10}>Blog</a>
                     </li>
                   </ul>
                 </li>
                 <li className="nav-link">
-                  <a href="#">Careers</a>
+                  <a
+                    href="#"
+                    className=" md:h-full md:flex md:items-center md:px-2"
+                    tabIndex={11}
+                  >
+                    Careers
+                  </a>
                 </li>
                 <li className="nav-link">
-                  <a href="#">About</a>
+                  <a
+                    href="#"
+                    className="md:h-full md:flex md:items-center md:px-2"
+                    tabIndex={12}
+                  >
+                    About
+                  </a>
                 </li>
               </ul>
               {/* LOGIN/REGISTER BUTTONS */}
               <div className="login-register mt-6 md:mt-0 md:flex text-center">
                 <ul className="md:flex items-center">
                   <li className="nav-link">
-                    <a href="#" className="hover:underline">
+                    <a
+                      href="#"
+                      className="hover:underline md:hover:no-underline  md:h-full md:flex md:items-center md:px-2"
+                    >
                       Login
                     </a>
                   </li>
-                  <li className="nav-link">
+                  <li className="nav-link register md:hover:border-transparent ">
                     <a
                       href="#"
                       className="border-2 border-gray-400 rounded-2xl p-2 md:px-3 lg:py-2 lg:px-6 hover:bg-gray-400 hover:text-white transition ease-linear duration-100"
