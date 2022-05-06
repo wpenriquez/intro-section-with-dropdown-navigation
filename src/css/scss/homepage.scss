@@ -9,7 +9,7 @@ main {
       .client-list {
         ul {
           .client-logo {
-            @apply w-auto mr-5 lg:mr-7 lg:w-32;
+            @apply w-auto mr-5 lg:mr-7 md:w-36 lg:w-32 xl:w-24 2xl:w-32;
           }
 
           li:last-child {

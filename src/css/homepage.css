@@ -3,7 +3,7 @@ main .body-container .homepage-content .learn-more .learn-more-btn {
 }
 
 main .body-container .homepage-content .client-list ul .client-logo {
-  @apply w-auto mr-5 lg:mr-7 lg:w-32;
+  @apply w-auto mr-5 lg:mr-7 md:w-36 lg:w-32 xl:w-24 2xl:w-32;
 }
 
 main .body-container .homepage-content .client-list ul li:last-child {
