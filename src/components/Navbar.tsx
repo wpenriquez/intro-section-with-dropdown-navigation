@@ -49,7 +49,7 @@ const Navbar = () => {
       setFeaturesRotate("-rotate-180");
       setFeaturesDisplay("h-0 mt-0 opacity-0 block");
       setTimeout(() => {
-        setFeaturesDisplay("h-40 mt-5 opacity-1 block");
+        setFeaturesDisplay("h-40 mt-5 opacity-1 block md:border-t-2");
       }, 90);
     } else {
       setFeaturesRotate("rotate-0");
@@ -73,7 +73,7 @@ const Navbar = () => {
       setCompanyRotate("-rotate-180");
       setCompanyDisplay("h-0 mt-0 opacity-0 block");
       setTimeout(() => {
-        setCompanyDisplay("h-28 mt-5 opacity-1 block");
+        setCompanyDisplay("h-28 mt-5 opacity-1 block md:border-t-2");
       }, 90);
     } else {
       setCompanyRotate("rotate-0");
