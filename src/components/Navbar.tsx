@@ -130,7 +130,7 @@ const Navbar = () => {
   return (
     <div>
       {/* MAIN NAVBAR DIV */}
-      <div className="navbar md:border-b border-gray-300 md:h-28">
+      <div className="navbar md:h-28">
         {/* INNER NAVBAR CONTAINER */}
         <div className="navbar-container md:h-full">
           {/* NAV TAG */}
