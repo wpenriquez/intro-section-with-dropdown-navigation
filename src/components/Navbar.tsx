@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../css/navbar.css";
+import todo from "../images/icon-todo.svg";
+import calendar from "../images/icon-calendar.svg";
+import reminders from "../images/icon-reminders.svg";
+import planning from "../images/icon-planning.svg";
 
 const Navbar = () => {
   const [menuCollapse, setMenuCollapse] = useState("hidden");
@@ -197,7 +201,7 @@ const Navbar = () => {
                     onKeyDown={(e) => {
                       if (e.keyCode === 13) {
                         collapseFeaturesDropDown();
-                      } 
+                      }
                     }}
                   >
                     Features
@@ -226,70 +230,51 @@ const Navbar = () => {
                   <ul className={`features-content ` + featuresContentDisplay}>
                     <li className="features-item">
                       <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="features-icon text-violet-500"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                          <path
-                            fillRule="evenodd"
-                            d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <img
+                          src={todo}
+                          alt="todo_icon"
+                          className="features-icon"
+                        />
                       </span>
-                      <a href="#" tabIndex={3}>Todo List</a>
+                      <a href="#" tabIndex={3}>
+                        Todo List
+                      </a>
                     </li>
                     <li className="features-item">
                       <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="features-icon text-teal-500"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
+                        <img
+                          src={calendar}
+                          alt="calendar_icon"
+                          className="features-icon"
+                        />
                       </span>
-                      <a href="#" tabIndex={4}>Calendar</a>
+                      <a href="#" tabIndex={4}>
+                        Calendar
+                      </a>
                     </li>
                     <li className="features-item">
                       <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="features-icon text-yellow-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-                        </svg>
+                        <img
+                          src={reminders}
+                          alt="reminders_icon"
+                          className="features-icon"
+                        />
                       </span>
-                      <a href="#" tabIndex={5}>Reminders</a>
+                      <a href="#" tabIndex={5}>
+                        Reminders
+                      </a>
                     </li>
                     <li className="features-item">
                       <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="features-icon text-purple-600"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <img
+                          src={planning}
+                          alt="planning_icon"
+                          className="features-icon"
+                        />
                       </span>
-                      <a href="#" tabIndex={6}>Planning</a>
+                      <a href="#" tabIndex={6}>
+                        Planning
+                      </a>
                     </li>
                   </ul>
                 </li>
@@ -326,13 +311,19 @@ const Navbar = () => {
                   </div>
                   <ul className={`company-content ` + companyContentDisplay}>
                     <li className="company-item">
-                      <a href="#" tabIndex={8}>History</a>
+                      <a href="#" tabIndex={8}>
+                        History
+                      </a>
                     </li>
                     <li className="company-item">
-                      <a href="#" tabIndex={9}>Our Team</a>
+                      <a href="#" tabIndex={9}>
+                        Our Team
+                      </a>
                     </li>
                     <li className="company-item">
-                      <a href="#" tabIndex={10}>Blog</a>
+                      <a href="#" tabIndex={10}>
+                        Blog
+                      </a>
                     </li>
                   </ul>
                 </li>
@@ -358,6 +349,7 @@ const Navbar = () => {
               {/* LOGIN/REGISTER BUTTONS */}
               <div className="login-register mt-6 md:mt-0 md:flex text-center">
                 <ul className="md:flex items-center">
+                  {/* LOGIN */}
                   <li className="nav-link">
                     <a
                       href="#"
@@ -366,6 +358,7 @@ const Navbar = () => {
                       Login
                     </a>
                   </li>
+                  {/* REGISTER */}
                   <li className="nav-link register md:hover:border-transparent ">
                     <a
                       href="#"
