@@ -1,0 +1,22 @@
+main {
+  .body-container {
+    .homepage-content {
+      .learn-more {
+        .learn-more-btn {
+          @apply bg-black text-white px-6 py-4 rounded-2xl text-lg font-bold tracking-wider border-2 border-black hover:bg-white hover:text-black transition-all ease-linear duration-100;
+        }
+      }
+      .client-list {
+        ul {
+          .client-logo {
+            @apply w-auto mr-5 lg:mr-7 md:w-36 lg:w-32 xl:w-24 2xl:w-32;
+          }
+
+          li:last-child {
+            @apply mr-0;
+          }
+        }
+      }
+    }
+  }
+}
