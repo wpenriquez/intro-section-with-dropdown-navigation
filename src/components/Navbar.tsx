@@ -98,7 +98,6 @@ const Navbar = () => {
     };
 
     const closeAllMenuClick = (evt: any) => {
-      console.log(evt.target.classList);
       if (window.innerWidth > 767) {
         if (!evt.target.classList.contains("features-dropdwn")) {
           setFeaturesRotate("rotate-0");
